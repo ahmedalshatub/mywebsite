@@ -1,0 +1,72 @@
+private DataTable ItemsTable = new DataTable();
+         public Class1()
+        {
+
+            ItemsTable.Columns.Add("id");
+            ItemsTable.Columns.Add("ItemName");
+            ItemsTable.Columns.Add("ItemType");
+            ItemsTable.Columns.Add("ItemDescripe");
+            ItemsTable.Columns.Add("ItemPrice");
+            ItemsTable.Columns.Add("TotalPrice");
+
+
+            DataRow ro = ItemsTable.NewRow();
+            ro["id"] = 1;
+            ro["ItemName"] = "Chanel Bag";
+            ro["ItemType"] = "Bag";
+            ro["ItemDescripe"] = "it is good";
+            ro["TotalPrice"] = 2500;
+            ItemsTable.Rows.Add(ro);
+
+            ro = ItemsTable.NewRow();
+            ro["id"] = 2;
+            ro["ItemName"] = "Perfum zara";
+            ro["ItemType"] = "Perfum";
+            ro["ItemDescripe"] = "exp";
+            ro["TotalPrice"] = 200;
+            ItemsTable.Rows.Add(ro);
+
+
+            ro = ItemsTable.NewRow();
+            ro["id"] = 3;
+            ro["ItemName"] = "zara Bag";
+            ro["ItemType"] = "Bag";
+            ro["ItemDescripe"] = "leather";
+            ro["TotalPrice"] = 400;
+            ItemsTable.Rows.Add(ro);
+
+             /*add new item code
+            ro = ItemsTable.NewRow();
+            ro["id"] = 3;
+            ro["ItemName"] = "zara Bag";
+            ro["ItemType"] = "Bag";
+            ro["ItemDescripe"] = "leather";
+            ro["TotalPrice"] = 400;
+            ItemsTable.Rows.Add(ro);
+             */
+
+
+
+        }
+         public int RetMaxItems() { return ItemsTable.Rows.Count; }
+         public string RetName(int ID)
+         {
+             return ItemsTable.Rows[ID - 1]["ItemName"].ToString();
+         }
+         public string RetType(int ID)
+         {
+             return ItemsTable.Rows[ID - 1]["ItemType"].ToString();
+         }
+         public string RetDesc(int ID)
+         {
+             return ItemsTable.Rows[ID - 1]["ItemDescripe"].ToString();
+         }
+         public string RetDescSecton(int ID)
+         {
+             string ITDescription = ItemsTable.Rows[ID - 1]["ItemDescripe"].ToString();
+             return ITDescription.Substring(0, 100); ;
+         }
+         public int RetPrice(int ID)
+         {
+             return Convert.ToInt32(ItemsTable.Rows[ID - 1]["TotalPrice"]);
+         }
